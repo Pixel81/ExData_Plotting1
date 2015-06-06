@@ -26,6 +26,9 @@ data <- read.csv.sql( "./data/household_power_consumption.txt",
                      )
 
 # 3. Draw timeline graph
+
+png("plot2.png", width = 480, height = 480) # Create PNG file
+
 dateTime   <- as.POSIXlt(paste(as.Date(data$Date, format="%d/%m/%Y"), 
                                data$Time, sep=" ")
                          )
@@ -33,6 +36,5 @@ plot(dateTime,data$Global_active_power,
      type = "l", # Type l = line
      xlab="",ylab="Global Active Power (kilowatts)")
 
-# 4. Copy histogram into PNG file in the working directory
-dev.copy(png, file = "plot2.png")
+# 4. Close connexion of PNG file
 dev.off()

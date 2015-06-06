@@ -1,6 +1,6 @@
-## Plotting script 1
+## Plotting script 2
 ## Written by Pixel
-## Last update : 2015.6.3
+## Last update : 2015.6.6
 
 # 0. Load optional library
 library(sqldf)
@@ -25,14 +25,14 @@ data <- read.csv.sql( "./data/household_power_consumption.txt",
                                 ("1/2/2007","2/2/2007") '
                      )
 
-# 3. Draw histogram
-hist(data$Global_active_power,
-     main = "Global Active Power",
-     col = "red",
-     xlab = "Global Active Power (kilowatts)",
-     ylab = "Frequency"
-     )
+# 3. Draw timeline graph
+dateTime   <- as.POSIXlt(paste(as.Date(data$Date, format="%d/%m/%Y"), 
+                               data$Time, sep=" ")
+                         )
+plot(dateTime,data$Global_active_power,
+     type = "l", # Type l = line
+     xlab="",ylab="Global Active Power (kilowatts)")
 
 # 4. Copy histogram into PNG file in the working directory
-dev.copy(png, file = "plot1.png")
+dev.copy(png, file = "plot2.png")
 dev.off()

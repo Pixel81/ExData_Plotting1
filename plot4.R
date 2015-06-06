@@ -30,6 +30,9 @@ dateTime   <- as.POSIXlt(paste(as.Date(data$Date, format = "%d/%m/%Y"),
                                data$Time, sep = " ")
                          )
 
+# Set the system time in english to fit english days in graph
+Sys.setlocale("LC_TIME", "eng")
+
 # 3. Draw 4 graphes in plot4.png
 
 png("plot4.png", width = 480, height = 480) # Create PNG file

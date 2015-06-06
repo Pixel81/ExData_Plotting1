@@ -25,6 +25,9 @@ data <- read.csv.sql( "./data/household_power_consumption.txt",
                                 ("1/2/2007","2/2/2007") '
                      )
 
+# Set the system time in english to fit english days in graph
+Sys.setlocale("LC_TIME", "eng")
+
 # 3. Draw 3 sub metering graphs in plot3.png
 dateTime   <- as.POSIXlt(paste(as.Date(data$Date, format = "%d/%m/%Y"), 
                                data$Time, sep = " ")

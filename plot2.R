@@ -25,6 +25,9 @@ data <- read.csv.sql( "./data/household_power_consumption.txt",
                                 ("1/2/2007","2/2/2007") '
                      )
 
+# Set the system time in english to fit english days in graph
+Sys.setlocale("LC_TIME", "eng")
+
 # 3. Draw timeline graph
 
 png("plot2.png", width = 480, height = 480) # Create PNG file

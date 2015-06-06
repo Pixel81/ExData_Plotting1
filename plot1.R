@@ -29,7 +29,6 @@ data <- read.csv.sql( "./data/household_power_consumption.txt",
 Sys.setlocale("LC_TIME", "eng")
 
 # 3. Draw histogram in PNG file
-
 png("plot1.png", width = 480, height = 480) # Create PNG file
 
 hist(data$Global_active_power,
